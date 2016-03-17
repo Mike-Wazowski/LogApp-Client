@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>LogApp Client</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">LogApp</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="form.html">Dodaj nowy log</a></li>
+            <li><a href="json.html">Prześlij JSON</a></li>
+        </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    </nav>
+    <div class="row page-body">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="page-header">
+                <h1>LogApp <small>Client</small></h1>
+                <p>Witamy w aplikacji LogApp Client! Dzięki tej stronie możliwe jest dodadnie nowych rekordów do bazy danych.
+                   Do komunikacji z API wykożystywany jest protokół HTTP.
+                   Żądania z aplikacji do serwera przesyłane sa z użyciem AJAX (wymagana jest obsługa Javascript w przeglądarce).
+                </p>
+                <p>Obecnie używany adres API to: <code id="apiUrl"></code>
+                   Aby go zmienić należy zmienić wartość zmiennej <code>apiUrl</code> która znajduje się w pliku <code>js/app.js</code>
+                </p>
+                <p>Instrukcja obsługi:</p>
+                <p></p>
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Dodaj nowy log</div>
+                    <div class="panel-body">
+                        <p>Ta strona możliwia przesłanie nowego rekordu poprzez formularz. W pierwszym kroku należy dodać i wypełnić pola z nazwami nagłówków.
+                           Kolejnym krokiem jest uzupełnienie pól danymi odpowiednimi dla danego typu i przesłanie formularza.
+                        </p>
+                    </div>
+                    <div class="panel-heading">Prześlij JSON</div>
+                    <div class="panel-body">
+                        <p>W tej zakładce możliwe jest podanie własnego tekstu w formacie JSON, który następnie zostanie przesłany na serwer.
+                           Przesyłany obiekt składa się z dwóch elementów:
+                        </p>
+                        <ul>
+                            <li>Tekstowej tablicy <code>Headers</code> służącej do identyfikacji typu loga</li>
+                            <li>Listy tablic tekstowych <code>Records</code> zawierającej odpowiednie pola loga (możliwe jest dodanie wielu logów jednego typu jednocześnie)</li>
+                        </ul>
+                        <p>
+                           Przesłanie ponizszego przykładu spowoduje dodanie na serwerze trzech rekordów podstawowego typu.
+                        </p>
+                        <code>
+                            {"Headers":["Czas zdarzenia","Identyfikator źródła zdarzenia"],"Records":[["2015-10-29T19:06:09.294Z", "194.29.137.12"],["2015-10-29T19:16:29.434Z", "194.29.137.12"],["2015-10-29T19:17:12.345Z", "194.29.137.12"]]}
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</body>
+
+</html>
